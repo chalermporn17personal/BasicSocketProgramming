@@ -20,9 +20,16 @@ do
     FILENAME=output.file
     FILESIZE=$(stat -c%s "$FILENAME")
     echo "Size of $FILENAME = $FILESIZE bytes."
+    spd=$(calc $FILESIZE/$t)
+    spd=$(calc $spd/1000)
+    echo "Speed : $spd KBps"
     echo ""
+    
     sleep .1
 done
 avg=$(calc $sum/$times)
-echo "average : $avg"
+echo "average : $avg seconds."
+spd=$(calc $FILESIZE/$avg)
+spd=$(calc $spd/1000)
+echo "Average Speed : $spd KBps."
 echo ""

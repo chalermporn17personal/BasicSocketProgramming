@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 		{
 			//fwrite(buffer, 1, nread, fw);
 			write(client_socket , buffer , nread);
-			read(client_socket , dummy , sizeof(dummy));
+			//read(client_socket , dummy , sizeof(dummy));
 		}
 		write(client_socket , "--ED" , 5);
 		printf("Data sended\n\n");

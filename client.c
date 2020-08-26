@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 				break;
 			}
 			fwrite(buffer, 1, receive_return, fw);
-			//write(network_socket,"1",2);
+			write(network_socket,"1",2);
 		}
 		printf("Ending\n");
 	}

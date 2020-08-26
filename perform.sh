@@ -4,7 +4,6 @@ times=$1
 SCRIPT="$(echo $2)"
 cnt=0
 sum=0
-$tttt=1000
 while [ $cnt -lt $times ]
 do
     echo "-------- Round $cnt start --------"

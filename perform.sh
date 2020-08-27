@@ -4,6 +4,7 @@ times=$1
 SCRIPT="$(echo $2)"
 cnt=0
 sum=0
+ttiwrite=""
 while [ $cnt -lt $times ]
 do
     echo "-------- Round $cnt start --------"
@@ -23,13 +24,14 @@ do
     spd=$(calc $FILESIZE/$t)
     spd=$(calc $spd/1000)
     echo "Speed : $spd KBps"
-    echo ""
-    
+    tti="$tti,$t,$spd"
     sleep .2
 done
 avg=$(calc $sum/$times)
 echo "average : $avg seconds."
 spd=$(calc $FILESIZE/$avg)
 spd=$(calc $spd/1000)
+tti="$tti,$avg,$spd"
+echo $tti >> client_speed.csv
 echo "Average Speed : $spd KBps."
 echo ""

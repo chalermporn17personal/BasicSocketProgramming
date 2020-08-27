@@ -61,17 +61,19 @@ int main(int argc, char *argv[])
 	printf("receive File path : '%s' \n",filename);
 	if(filename == "Close") break;
 	FILE *fptr;
-    if (fptr = fopen(filename,"rb"))
+	    if (fptr = fopen(filename,"rb"))
 	{
 		write(client_socket , "1" , 2);
 		// Found file
 		// read file
 		printf("Reading file \n");
+		
+		//read(client_socket , dummy , sizeof(dummy));
+		read(client_socket , dummy , sizeof(dummy));
 		while(0 < (nread = fread(buffer, 1, sizeof(buffer), fptr)))
 		{
 			//fwrite(buffer, 1, nread, fw);
 			write(client_socket , buffer , nread);
-			//read(client_socket , dummy , sizeof(dummy));
 		}
 		write(client_socket , "--ED" , 5);
 		printf("Data sended\n\n");

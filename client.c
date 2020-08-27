@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
 		printf("file found ... receiving ... \n");
 		FILE *fw;
 		fw = fopen(argv[4], "wb+");
+		write(network_socket,"1111",5);
 		while(1)
 		{
 			receive_return = read(network_socket , &buffer , sizeof(buffer));
@@ -60,7 +61,6 @@ int main(int argc, char *argv[])
 				break;
 			}
 			fwrite(buffer, 1, receive_return, fw);
-			//write(network_socket,"1",2);
 		}
 		printf("Ending\n");
 	}
